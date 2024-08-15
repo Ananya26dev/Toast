@@ -1,11 +1,11 @@
 import Notification from "./components/Notification";
 import UserNotification from "./hooks/UserNotification";
-
+import "./App.css";
 const App = () => {
   const { NotificationComponent, triggerNotification } =
     UserNotification("top-right");
   return (
-    <div>
+    <div className="container">
       <button
         onClick={() =>
           triggerNotification({
@@ -16,8 +16,7 @@ const App = () => {
         }
       >
         Success
-      </button>{" "}
-      &nbsp;
+      </button>
       <button
         onClick={() =>
           triggerNotification({
@@ -28,6 +27,28 @@ const App = () => {
         }
       >
         Error
+      </button>
+      <button
+        onClick={() =>
+          triggerNotification({
+            type: "info",
+            duration: 3000,
+            message: "File sent Processing.",
+          })
+        }
+      >
+        Info
+      </button>
+      <button
+        onClick={() =>
+          triggerNotification({
+            type: "warning",
+            duration: 3000,
+            message: "File sent Warning!",
+          })
+        }
+      >
+        Warning
       </button>
       {NotificationComponent}
     </div>
